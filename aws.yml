@@ -1,0 +1,65 @@
+version: '3.2'
+
+services:
+
+#  db:
+#    image: mysql:5.7
+#    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --init-connect='SET NAMES UTF8;' --innodb-flush-log-at-trx-commit=0
+#    environment:
+#      MYSQL_ROOT_PASSWORD: rootpassword
+#      MYSQL_DATABASE: portfolio
+#      MYSQL_USER: databaseuser
+#      MYSQL_PASSWORD: databasepassword
+#    volumes:
+#      - ./my.cnf:/etc/mysql/conf.d/custom.cnf
+#  redis:
+#    image: "redis:alpine"
+  web:
+    build:
+      context: .
+      dockerfile: ./compose/production/trt/Dockerfile
+#    environment:
+#      MYSQL_DATABASE: portfolio
+#      MYSQL_USER: databaseuser
+#      MYSQL_PASSWORD: databasepassword
+    env_file:
+      - ./env/aws.env
+    ports:
+      - "8000:8000"
+#    links:
+#      - db
+    command: /gunicorn.sh
+    volumes:
+      - type: volume
+        source: static
+        target: /app/staticfiles
+
+  nginx:
+    restart: always
+    build: ./compose/production/nginx
+    links:
+      - web:web
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - type: bind
+        source: static
+        target: /static
+
+#  phpmyadmin:
+#    image: phpmyadmin/phpmyadmin
+#    environment:
+#      PMA_HOST: db
+#      PMA_PORT: 3306
+#      PMA_USER: databaseuser
+#      PMA_PASSWORD: databasepassword
+#    restart: always
+#    ports:
+#      - 8080:80
+#    links:
+#      - db
+
+volumes:
+  data:
+  static:

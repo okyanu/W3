@@ -1,0 +1,21 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+
+{% block title %}<title>Artyel- Logged out</title> {% endblock %}
+
+
+
+{% block body %}
+<div class="m-portlet">
+
+        <div class="alert alert-danger" role="alert" align="center">
+            {% if request.session.lang == "en" %}
+                                                <p>{% trans "Successfully logged out" %}.</p>
+                                            {% else %}
+                                               <p>{% trans "Başarıyla Çıkış Yaptınız." %}.</p>
+                                            {% endif %}
+
+        </div>
+</div>
+{% endblock %}

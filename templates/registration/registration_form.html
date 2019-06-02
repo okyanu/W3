@@ -1,0 +1,298 @@
+{% extends "registration/registration_base.html" %}
+
+
+{% block title %}<title>Sign Up - Artyel</title>{% endblock %}
+{% block description %}   <meta name="description" content="Join to several designers where they meet to find their design jobs. Upload portfolio, add your cv and Apply to jobs.">  {% endblock %}
+
+{% load i18n %}
+{% load thumbnail %}
+
+
+
+{% block body %}
+
+{% if not request.user.is_authenticated %}
+
+
+            <div class="m-portlet">
+                <div class="m-grid m-grid--hor m-grid--root m-page">
+                    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-2" id="m_login" >
+                        <div class="m-grid__item m-grid__item--fluid	m-login__wrapper">
+                            <div class="m-login__container">
+                                <div class="m-login__logo">
+                                    <a href="#">
+
+                                    <img src="https://s3.eu-central-1.amazonaws.com/artyel-s3/media/img/logo/favicon(5).ico">
+                                    </a>
+                                </div>
+                                <div class="m-login__signin">
+                                    {% if not form.last_name %}
+                                    <div class="m-login__head">
+                                        <h3 class="m-login__title">
+                                            {% if request.session.lang == "en" %}
+                                                Employer Sign Up To Artyel
+                                            {% else %}
+                                                İşveren Kayıt -  Artyel
+                                            {% endif %}
+
+                                        </h3>
+                                    </div>
+                                    {% endif %}
+
+                                    {% if form.last_name %}
+                                    <div class="m-login__head">
+                                        <h3 class="m-login__title">
+
+                                        {% if request.session.lang == "en" %}
+                                                Talent Sign Up To Artyel
+                                            {% else %}
+                                               Tasarımcı Kayıt -  Artyel
+                                            {% endif %}
+                                        </h3>
+                                    </div>
+                                    {% endif %}
+
+
+
+
+                                    {% if form.errors%}
+                                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        </button>
+                                        <strong>
+
+                                            {% if request.session.lang == "en" %}
+                                                Warning!
+                                            {% else %}
+                                               Hata!
+                                            {% endif %}
+
+                                        </strong>
+
+                                        {% if request.session.lang == "en" %}
+
+                                                                            {% language 'en' %}
+                                                                               {{form.errors}}
+                                                                            {% endlanguage %}
+
+                                                                            {% else %}
+                                                                                {% language 'tr' %}
+                                                                               {{form.errors}}
+                                                                            {% endlanguage %}
+
+                                                                            {% endif %}
+
+
+
+                                    </div>
+                                    {%endif%}
+                                    <form method="post" class="m-login__form m-form" action="">
+                                        {% csrf_token %}
+                                        <div class="form-group m-form__group">
+                                            <input class="form-control m-input" type="text" placeholder="Username" name="username">
+                                            {% if request.session.lang == "en" %}
+
+                                                                            {% language 'en' %}
+                                                                               {{form.username.help_text}}
+                                                                            {% endlanguage %}
+
+                                                                            {% else %}
+                                                                                {% language 'tr' %}
+                                                                               {{form.username.help_text}}
+                                                                            {% endlanguage %}
+
+                                                                            {% endif %}
+
+
+                                            <!--{{form.username.errors}}-->
+                                        </div>
+                                        {% if form.last_name %}
+                                            <div class="form-group m-form__group">
+                                                <input class="form-control m-input" type="text" placeholder="First Name" name="first_name">
+                                                {% if request.session.lang == "en" %}
+
+                                                                            {% language 'en' %}
+                                                                              {{form.first_name.help_text}}
+                                                                            {% endlanguage %}
+
+                                                                            {% else %}
+                                                                                {% language 'tr' %}
+                                                                               {{form.first_name.help_text}}
+                                                                            {% endlanguage %}
+
+                                                                            {% endif %}
+
+                                                <!--{{form.username.errors}}-->
+                                            </div>
+
+                                            <div class="form-group m-form__group">
+                                                <input class="form-control m-input" type="text" placeholder="Last Name" name="last_name">
+                                                {% if request.session.lang == "en" %}
+
+                                                                            {% language 'en' %}
+                                                                               {{form.last_name.help_text}}
+                                                                            {% endlanguage %}
+
+                                                                            {% else %}
+                                                                                {% language 'tr' %}
+                                                                               {{form.last_name.help_text}}
+                                                                            {% endlanguage %}
+
+                                                                            {% endif %}
+
+                                                <!--{{form.username.errors}}-->
+                                            </div>
+
+                                        {% else %}
+                                            <div class="form-group m-form__group">
+                                                <input class="form-control m-input" type="text" placeholder="Company Name" name="first_name">
+                                                {% if request.session.lang == "en" %}
+
+                                                                            {% language 'en' %}
+                                                                               {{form.first_name.help_text}}
+                                                                            {% endlanguage %}
+
+                                                                            {% else %}
+                                                                                {% language 'tr' %}
+                                                                               {{form.first_name.help_text}}
+                                                                            {% endlanguage %}
+
+                                                                            {% endif %}
+
+                                                <!--{{form.username.errors}}-->
+                                            </div>
+                                        {% endif %}
+
+
+
+                                        <!--{% if form.first_name %}-->
+                                            <!--<div class="form-group m-form__group">-->
+                                                <!--<input class="form-control m-input" type="text" placeholder="Company Name" name="first_name">-->
+                                                <!--{{form.first_name.help_text}}-->
+                                                <!--&lt;!&ndash;{{form.username.errors}}&ndash;&gt;-->
+                                            <!--</div>-->
+                                            <!--{% endif %}-->
+
+
+                                        <div class="form-group m-form__group">
+                                            <input class="form-control m-input" type="text" placeholder="Email" name="email" autocomplete="off">
+                                            {% if request.session.lang == "en" %}
+
+                                                                            {% language 'en' %}
+                                                                               {{form.email.help_text|safe}}
+                                                                            {% endlanguage %}
+
+                                                                            {% else %}
+                                                                                {% language 'tr' %}
+                                                                               {{form.email.help_text|safe}}
+                                                                            {% endlanguage %}
+
+                                                                            {% endif %}
+
+                                            <!--{{form.email.errors}}-->
+                                        </div>
+                                        <div class="form-group m-form__group">
+                                            <input class="form-control m-input" type="password" placeholder="Password" name="password1">
+                                            {% if request.session.lang == "en" %}
+
+                                                                            {% language 'en' %}
+                                                                               {{form.password1.help_text |safe}}
+                                                                            {% endlanguage %}
+
+                                                                            {% else %}
+                                                                                {% language 'tr' %}
+                                                                                {{form.password1.help_text |safe}}
+                                                                            {% endlanguage %}
+
+                                                                            {% endif %}
+
+                                            <!--{{form.password1.errors}}-->
+                                        </div>
+                                        <div class="form-group m-form__group">
+                                            <input class="form-control m-input m-login__form-input--last" type="password" placeholder="Confirm Password" name="password2">
+                                            {% if request.session.lang == "en" %}
+
+                                                                            {% language 'en' %}
+                                                                              {{form.password2.help_text}}
+                                                                            {% endlanguage %}
+
+                                                                            {% else %}
+                                                                                {% language 'tr' %}
+                                                                               {{form.password2.help_text}}
+                                                                            {% endlanguage %}
+
+                                                                            {% endif %}
+
+                                            <!--{{form.password2.errors}}-->
+                                        </div>
+                                        <!--<div class="form-group m-form__group">-->
+                                            <!--<input type="checkbox" name="tos">-->
+                                            <!--{{form.tos.help_text}}-->
+                                            <!--&lt;!&ndash;{{form.password2.errors}}&ndash;&gt;-->
+                                        <!--</div>-->
+                                        <div class="row form-group m-form__group m-login__form-sub">
+                                            <div class="col m--align-left">
+                                                <label class="m-checkbox m-checkbox--focus">
+                                                    {% if request.session.lang == "en" %}
+                                               <input type="checkbox" name="agree" required>I Agree the <b><a href="/term/" class="m-link m-link--focus">terms and conditions</a></b>.
+                                            {% else %}
+                                               <input type="checkbox" name="agree" required>Kullanım koşullarını  <b><a href="/term/" class="m-link m-link--focus">kabul ediyorum</a> </b>.
+                                            {% endif %}
+
+                                                <span></span>
+                                                </label>
+                                                <span class="m-form__help"></span>
+                                            </div>
+                                        </div>
+                                        <div class="m-login__form-action">
+                                            <button id="m_login_signin_submit" class="btn btn-danger m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary">
+                                            {% if request.session.lang == "en" %}
+                                                 Register
+                                            {% else %}
+                                                Kayıt Ol
+                                            {% endif %}
+
+                                            </button>
+                                            <input type="hidden" name="next" value="{{ next }}" />
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+<!--<form method="post" action="">-->
+    <!--{% csrf_token %}-->
+    <!--{{ form.as_ul }}-->
+    <!--<input type="submit" value="{% trans 'Submit' %}" />-->
+<!--</form>-->
+{% else %}
+
+
+<p> You have already logged in.</p>
+
+{% endif %}
+
+
+
+{% endblock %}
+
+
+{% comment %}
+**registration/registration_form.html**
+Used to show the form users will fill out to register. By default, has
+the following context:
+
+``form``
+    The registration form. This will be an instance of some subclass
+    of ``django.forms.Form``; consult `Django's forms documentation
+    <http://docs.djangoproject.com/en/dev/topics/forms/>`_ for
+    information on how to display this in a template.
+{% endcomment %}

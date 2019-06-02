@@ -1,0 +1,35 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+
+{% block title %}
+
+    <title>Artyel- Activation Failure</title>
+
+
+
+{% block body %}
+    <div class="m-portlet">
+        <div class="alert alert-danger" role="alert" align="center">
+            <p>
+                {% if request.session.lang == "en" %}
+                    {% trans "Account activation failed." %}
+
+                    {% else %}
+                        {% trans "Aktivasyon Başarılı Olamadı." %}
+                    {% endif %}
+
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% comment %}
+**registration/activate.html**
+
+Used if account activation fails. With the default setup, has the following context:
+
+``activation_key``
+    The activation key used during the activation attempt.
+{% endcomment %}

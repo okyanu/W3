@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form method="post">
+{% csrf_token %}
+
+<select multiple="multiple" id="Cuisine" name="cuisine">
+    <option value="">Choose Cuisines</option>
+    {% for choice in cuisines %}
+     <option value="{{ choice.cuisine.cuisine_id }}">{{ choice.cuisine.cuisine_name }} </option>
+    {% endfor %}
+</select>
+
+
+
+<select multiple="multiple" id="Category" name="category" >
+    <option value="">Choose Categories</option>
+    {% for choice in establishments %}
+     <option value="{{ choice.establishment.id }}">{{ choice.establishment.name }} </option>
+    {% endfor %}
+</select>
+
+
+<button type="submit" name="submit" value="submit">Submit</button>
+
+</form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,2077 @@
+{% load static %}
+{% load thumbnail %}
+{% load pinax_messages_tags %}
+{% load i18n %}
+
+
+<html lang="en" class="wf-poppins-n4-active wf-roboto-n6-active wf-roboto-n7-active wf-roboto-n5-active wf-poppins-n6-active wf-roboto-n4-active wf-poppins-n7-active wf-poppins-n5-active wf-poppins-n3-active wf-roboto-n3-active wf-active"><!-- begin::Head --><head>
+        <meta charset="utf-8">
+		{% block title %}<title>Artyel</title> {% endblock %}
+		{% block description %}   <meta name="description" content="Latest updates and statistic charts">   {% endblock %}
+        <!--<meta name="description" content="Latest updates and statistic charts">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-81661671-2"></script>
+			<script>
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+
+			  gtag('config', 'UA-81661671-2');
+			</script>
+
+
+
+        <!--begin::Page Vendors -->
+				        		<link rel="shortcut icon" href="{% static 'favicon(5).ico' %}" />
+
+                <!--<link rel="stylesheet" type="text/css" href="{% static 'basePage/custom/fullcalendar/fullcalendar.bundle.css' %}" >-->
+				<link rel="stylesheet" type="text/css" href="{% static 'basePage/base/vendors.bundle.css.gz' %}" >
+				<link rel="stylesheet" type="text/css" href="{% static 'basePage/base/style.bundle.css.gz' %}" >
+				 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto:300,400,500,600,700" media="all"><script>
+					  WebFont.load({
+						google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
+						active: function() {
+							sessionStorage.fonts = true;
+						}
+					  });
+					</script>
+		        <!--end::Base Styles -->
+
+    <!--<script>-->
+  <!--(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){-->
+  <!--(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),-->
+  <!--m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)-->
+  <!--})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');-->
+
+  <!--ga('create', 'UA-37564768-1', 'auto');-->
+  <!--ga('send', 'pageview');-->
+
+<!--</script>-->
+<style type="text/css">span.im-caret {
+    -webkit-animation: 1s blink step-end infinite;
+    animation: 1s blink step-end infinite;
+}
+
+@keyframes blink {
+    from, to {
+        border-right-color: black;
+    }
+    50% {
+        border-right-color: transparent;
+    }
+}
+
+@-webkit-keyframes blink {
+    from, to {
+        border-right-color: black;
+    }
+    50% {
+        border-right-color: transparent;
+    }
+}
+
+span.im-static {
+    color: grey;
+}
+
+div.im-colormask {
+    display: inline-block;
+    border-style: inset;
+    border-width: 2px;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+div.im-colormask > input {
+    position: absolute;
+    display: inline-block;
+    background-color: transparent;
+    color: transparent;
+    -webkit-appearance: caret;
+    -moz-appearance: caret;
+    appearance: caret;
+    border-style: none;
+    left: 0; /*calculated*/
+}
+
+div.im-colormask > input:focus {
+    outline: none;
+}
+
+div.im-colormask > input::-moz-selection{
+    background: none;
+}
+
+div.im-colormask > input::selection{
+    background: none;
+}
+div.im-colormask > input::-moz-selection{
+    background: none;
+}
+
+div.im-colormask > div {
+    color: black;
+    display: inline-block;
+    width: 100px; /*calculated*/
+}</style><style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
+    <!-- end::Head -->
+
+
+    <!-- end::Body -->
+    <body class="m-page--wide m-header--fixed m-header--fixed-mobile m-footer--push m-aside--offcanvas-default" style="background-color: rgb(234,235,237)">
+
+
+
+    	<!-- begin:: Page -->
+<div class="m-grid m-grid--hor m-grid--root m-page">
+
+
+				<!-- begin::Header -->
+<header id="m_header" class="m-grid__item		m-header " >
+	<div class="m-header__top">
+		<div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
+			<div class="m-stack m-stack--ver m-stack--desktop">
+				<!-- begin::Brand -->
+<div class="m-stack__item m-brand">
+	<div class="m-stack m-stack--ver m-stack--general m-stack--inline">
+
+		<div class="m-stack__item m-stack__item--middle m-brand__logo">
+			<a {% if request.session.lang == "en" %}
+					href="/"
+			{% else %}
+										href="/tr"
+									{% endif %} class="m-brand__logo-wrapper">
+				<!--{% thumbnail "https://s3.eu-central-1.amazonaws.com/artyel-s3/media/img/logo/logo1.png" "120x84" as im %}-->
+					<!--<img src="{{ im.url }}">-->
+				<!--{% endthumbnail %}-->
+				<img alt="" src="https://d2vyf30iypaegv.cloudfront.net/media/img/logo/logo1.png">
+			</a>
+		</div>
+		{% if request.user.profile.is_not_company %}
+		<div class="m-stack__item m-stack__item--middle m-brand__tools" style="width: 230px;">
+			<!--<a  class="m-brand__icon m&#45;&#45;visible-tablet-and-mobile-inline-block"{% if request.session.lang == "en" %}-->
+					<!--href="/job/postjob"-->
+			<!--{% else %}-->
+										<!--href="/tr/job/postjob"-->
+									<!--{% endif %}-->
+				<!--&gt;-->
+							<!--<span class="m-nav__link-icon m-nav__link-icon&#45;&#45;aside-toggle">-->
+								<!--<span class="m-nav__link-icon-wrapper">-->
+									<!--<button type="button" class="btn m-btn&#45;&#45;pill m-btn&#45;&#45;air         btn-info">-->
+									<!--{% if request.session.lang == "en" %}-->
+										<!--Post Job-->
+									<!--{% else %}-->
+										<!--İlan Ver-->
+									<!--{% endif %}-->
+									<!--</button>-->
+								<!--</span>-->
+							<!--</span>-->
+			<!--</a>-->
+			<a  class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/job/postjob"
+														{% else %}
+														href="/tr/job/postjob"
+														{% endif %}
+														style="width: 90px;">
+							<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+									{% if request.session.lang == "en" %}
+										Post Job
+									{% else %}
+										İlan Ver
+									{% endif %}
+									</button>
+								</span>
+							</span>
+			</a>
+		</div>
+
+		<div class="m-stack__item m-stack__item--middle m-brand__tools" style="width: 80px;">
+			<a class="m-brand__icon m--visible-tablet-and-mobile" {% if request.session.lang == "en" %}
+														href="/job/joblist"
+														{% else %}
+														href="/job/joblist"
+														{% endif %}
+			    >
+
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+									{% if request.session.lang == "en" %}
+											Find Job
+									{% else %}
+											İş Ara
+									{% endif %}
+									</button>
+								</span>
+
+						</a>
+			{% if request.session.lang == "en" %}
+			<a class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/job/joblist"
+														{% else %}
+														href="/tr/job/joblist"
+														{% endif %} style="width: 100px;" >
+				{% else %}
+			<a class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/job/joblist"
+														{% else %}
+														href="/tr/job/joblist"
+														{% endif %} style="width: 75px;" >
+				{% endif %}
+
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+									{% if request.session.lang == "en" %}
+											Find Job
+									{% else %}
+											İş Ara
+									{% endif %}
+									</button>
+								</span>
+
+						</a>
+		</div>
+
+		<div class="m-stack__item m-stack__item--middle m-brand__tools" style="width: 120px;">
+
+
+			<a  class="m-brand__icon m--visible-tablet-and-mobile" {% if request.session.lang == "en" %}
+														href="/talent/search"
+														{% else %}
+														href="/tr/talent/search"
+														{% endif %} >
+				<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+					<span class="m-nav__link-icon-wrapper">
+						<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+							{% if request.session.lang == "en" %}
+							Talent Search
+							{% else %}
+							Tasarımcı Arama
+							{% endif %}
+						</button>
+					</span>
+				</span>
+			</a>
+			{% if request.session.lang == "en" %}
+			<a  class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/talent/search"
+														{% else %}
+														href="/tr/talent/search"
+														{% endif %} style="width: 130px;" >
+				{% else %}
+			<a  class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/talent/search"
+														{% else %}
+														href="/tr/talent/search"
+														{% endif %} style="width: 150px;" >
+				{% endif %}
+
+							<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+									{% if request.session.lang == "en" %}
+											Talent Search
+									{% else %}
+											Tasarımcı Arama
+									{% endif %}
+									</button>
+								</span>
+							</span>
+						</a>
+		</div>
+
+		<div class="m-stack__item m-stack__item--middle m-brand__tools" >
+
+
+
+			{% if request.session.lang == "en" %}
+			<a  class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/job/applied"
+														{% else %}
+														href="/tr/job/applied"
+														{% endif %} style="width: 130px;" >
+				{% else %}
+			<a  class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/job/applied"
+														{% else %}
+														href="/tr/job/applied"
+														{% endif %} style="width: 150px;" >
+				{% endif %}
+
+							<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+										{% if request.session.lang == "en" %}
+											Applied Jobs
+									{% else %}
+											Başvurulan İlanlar
+									{% endif %}
+									</button>
+								</span>
+							</span>
+						</a>
+		</div>
+
+		{% endif %}
+
+		{% if request.user.company %}
+		<div class="m-stack__item m-stack__item--middle m-brand__tools" style="width: 200px;">
+			<a  class="m-brand__icon m--visible-tablet-and-mobile-inline-block" {% if request.session.lang == "en" %}
+														href="/job/postjob"
+														{% else %}
+														href="/tr/job/postjob"
+														{% endif %}>
+							<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+									{% if request.session.lang == "en" %}
+										Post Job
+									{% else %}
+										İlan Ver
+									{% endif %}
+									</button>
+								</span>
+							</span>
+			</a>
+			<a  class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/job/postjob"
+														{% else %}
+														href="/tr/job/postjob"
+														{% endif %} style="width: 90px;">
+							<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+									{% if request.session.lang == "en" %}
+										Post Job
+									{% else %}
+										İlan Ver
+									{% endif %}
+									</button>
+								</span>
+							</span>
+			</a>
+		</div>
+
+		<div class="m-stack__item m-stack__item--middle m-brand__tools" style="width: 85px;">
+			<a  class="m-brand__icon m--visible-tablet-and-mobile-inline-block"{% if request.session.lang == "en" %}
+														href="/job/joblist"
+														{% else %}
+														href="/tr/job/joblist"
+														{% endif %}>
+							<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+									{% if request.session.lang == "en" %}
+										Job List
+									{% else %}
+										İş İlanları
+									{% endif %}
+									</button>
+								</span>
+							</span>
+			</a>
+				{% if request.session.lang == "en" %}
+				<a  class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/job/joblist"
+														{% else %}
+														href="/tr/job/joblist"
+														{% endif %} style="width: 100px;">
+				{% else %}
+				<a  class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/job/joblist"
+														{% else %}
+														href="/tr/job/joblist"
+														{% endif %} style="width: 87px;">
+				{% endif %}
+							<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+									{% if request.session.lang == "en" %}
+										Job List
+									{% else %}
+										İş İlanları
+									{% endif %}
+									</button>
+								</span>
+							</span>
+			</a>
+		</div>
+
+		{% if request.session.lang == "en" %}
+		<div class="m-stack__item m-stack__item--middle m-brand__tools" style="width: 110px;">
+		{% else %}
+			<div class="m-stack__item m-stack__item--middle m-brand__tools" style="width: 155px;">
+				{% endif %}
+			<a  class="m-brand__icon m--visible-tablet-and-mobile-inline-block" {% if request.session.lang == "en" %}
+														href="/job/appliers"
+														{% else %}
+														href="/tr/job/tr/appliers"
+														{% endif %}>
+							<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+									{% if request.session.lang == "en" %}
+										Job Applicants
+									{% else %}
+										İlanıma Başvuranlar
+									{% endif %}
+									</button>
+								</span>
+							</span>
+			</a>
+			{% if request.session.lang == "en" %}
+			<a  class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/job/appliers"
+														{% else %}
+														href="/job/tr/appliers"
+														{% endif %} style="width: 150px;">
+				{% else %}
+				<a  class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/job/appliers"
+														{% else %}
+														href="/job/tr/appliers"
+														{% endif %} style="width: 160px;">
+				{% endif %}
+							<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+									{% if request.session.lang == "en" %}
+										Job Applicants
+									{% else %}
+										İlanıma Başvuranlar
+									{% endif %}
+									</button>
+								</span>
+							</span>
+			</a>
+		</div>
+
+
+
+		<div class="m-stack__item m-stack__item--middle m-brand__tools" style="width: 140px;">
+
+
+			<a  class="m-brand__icon m--visible-tablet-and-mobile" {% if request.session.lang == "en" %}
+														href="/talent/search"
+														{% else %}
+														href="/tr/talent/search"
+														{% endif %} >
+				<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+					<span class="m-nav__link-icon-wrapper">
+						<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+							{% if request.session.lang == "en" %}
+							Talent Search
+							{% else %}
+							Tasarımcı Arama
+							{% endif %}
+						</button>
+					</span>
+				</span>
+			</a>
+			{% if request.session.lang == "en" %}
+			<a  class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/talent/search"
+														{% else %}
+														href="/tr/talent/search"
+														{% endif %}  style="width: 140px;" >
+				{% else %}
+			<a  class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/talent/search"
+														{% else %}
+														href="/tr/talent/search"
+														{% endif %}  style="width: 142px;" >
+				{% endif %}
+
+							<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+									{% if request.session.lang == "en" %}
+											Talent Search
+									{% else %}
+											Tasarımcı Arama
+									{% endif %}
+									</button>
+								</span>
+							</span>
+						</a>
+		</div>
+		{% endif %}
+
+
+
+		{% if not request.user.company and not request.user.profile.is_not_company  %}
+
+		<div class="m-stack__item m-stack__item--middle m-brand__tools" style="width: 100px;">
+			<!--<a  class="m-brand__icon m&#45;&#45;visible-tablet-and-mobile-inline-block" {% if request.session.lang == "en" %}-->
+														<!--href="/job/postjob"-->
+														<!--{% else %}-->
+														<!--href="/job/tr/postjob"-->
+														<!--{% endif %} >-->
+							<!--<span class="m-nav__link-icon m-nav__link-icon&#45;&#45;aside-toggle">-->
+								<!--<span class="m-nav__link-icon-wrapper">-->
+									<!--<button type="button" class="btn m-btn&#45;&#45;pill m-btn&#45;&#45;air         btn-info">-->
+									<!--{% if request.session.lang == "en" %}-->
+										<!--Post Job-->
+									<!--{% else %}-->
+										<!--İlan Ver-->
+									<!--{% endif %}-->
+									<!--</button>-->
+								<!--</span>-->
+							<!--</span>-->
+			<!--</a>-->
+			<a  class="m-brand__icon m--visible-desktop"  {% if request.session.lang == "en" %}
+														href="/job/postjob"
+														{% else %}
+														href="/job/tr/postjob"
+														{% endif %} style="width: 120px;">
+							<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+									{% if request.session.lang == "en" %}
+										Post Job
+									{% else %}
+										İlan Ver
+									{% endif %}
+									</button>
+								</span>
+							</span>
+			</a>
+		</div>
+
+		<div class="m-stack__item m-stack__item--middle m-brand__tools" style="width: 80px;">
+			<a class="m-brand__icon m--visible-tablet-and-mobile" {% if request.session.lang == "en" %}
+														href="/job/joblist"
+														{% else %}
+														href="/job/tr/joblist"
+														{% endif %} >
+
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+									{% if request.session.lang == "en" %}
+											Find Job
+									{% else %}
+											İş Ara
+									{% endif %}
+									</button>
+								</span>
+
+						</a>
+			{% if request.session.lang == "en" %}
+			<a class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/job/joblist"
+														{% else %}
+														href="/job/tr/joblist"
+														{% endif %} style="width: 100px;" >
+				{% else %}
+			<a class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/job/joblist"
+														{% else %}
+														href="/job/tr/joblist"
+														{% endif %} style="width: 80px;" >
+				{% endif %}
+
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+									{% if request.session.lang == "en" %}
+											Find Job
+									{% else %}
+											İş Ara
+									{% endif %}
+									</button>
+								</span>
+
+						</a>
+		</div>
+
+		<div class="m-stack__item m-stack__item--middle m-brand__tools" style="width: 140px;">
+
+
+			<a  class="m-brand__icon m--visible-tablet-and-mobile" {% if request.session.lang == "en" %}
+														href="/talent/search"
+														{% else %}
+														href="/tr/talent/search"
+														{% endif %} >
+				<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+					<span class="m-nav__link-icon-wrapper">
+						<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+							{% if request.session.lang == "en" %}
+							Talent Search
+							{% else %}
+							Tasarımcı Arama
+							{% endif %}
+						</button>
+					</span>
+				</span>
+			</a>
+			{% if request.session.lang == "en" %}
+			<a  class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/talent/search"
+														{% else %}
+														href="/tr/talent/search"
+														{% endif %}  style="width: 140px;" >
+				{% else %}
+			<a  class="m-brand__icon m--visible-desktop" {% if request.session.lang == "en" %}
+														href="/talent/search"
+														{% else %}
+														href="/tr/talent/search"
+														{% endif %}  style="width: 160px;" >
+				{% endif %}
+
+							<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+								<span class="m-nav__link-icon-wrapper">
+									<button type="button" class="btn m-btn--pill m-btn--air         btn-info">
+									{% if request.session.lang == "en" %}
+											Talent Search
+									{% else %}
+											Tasarımcı Arama
+									{% endif %}
+									</button>
+								</span>
+							</span>
+						</a>
+		</div>
+
+		{% endif %}
+
+
+	</div>
+</div>
+<!-- end::Brand -->
+<div class="m-stack__item m-stack__item--fluid m-header-head m--visible-tablet-and-mobile" >
+	<div  class="m-topbar  m-stack m-stack--ver m-stack-tablet-and-mobile">
+		<div class="m-stack__item m-topbar__nav-wrapper">
+			<ul class="m-topbar__nav m-nav m-nav--inline">
+			</ul>
+		</div>
+	</div>
+</div>
+				<!-- begin::Topbar -->
+				{% if request.user.profile.is_not_company %}
+				<div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
+					<div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
+						<div class="m-stack__item m-topbar__nav-wrapper">
+							<ul class="m-topbar__nav m-nav m-nav--inline">
+
+
+
+
+
+
+								<li class="m-nav__item m-topbar__notifications m-topbar__notifications--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-center 	m-dropdown--mobile-full-width" m-dropdown-toggle="click" m-dropdown-persistent="1">
+									<a href="/messages/inbox" class="m-nav__link " >
+										{% with user|unread_thread_count as user_unread %}
+
+													{% if user_unread %}<span class="m-nav__link-badge m-badge m-badge--dot m-badge--dot-small m-badge--danger"></span>
+													{% else %}
+													<span class="m-nav__link-badge "></span>
+
+													{% endif %}
+
+                            			{% endwith %}
+
+										<span class="m-nav__link-icon">
+											<span class="m-nav__link-icon-wrapper">
+												<i class="flaticon-email"></i>
+											</span>
+										</span>
+									</a>
+
+								</li>
+								<li class="m-nav__item m-topbar__quick-actions m-topbar__quick-actions--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
+									<a href="#" class="m-nav__link m-dropdown__toggle">
+										<span class="m-nav__link-badge m-badge m-badge--dot m-badge--info m--hide"></span>
+										<span class="m-nav__link-icon">
+											<span class="m-nav__link-icon-wrapper">
+												<i class="flaticon-share"></i>
+											</span>
+										</span>
+									</a>
+									<div class="m-dropdown__wrapper">
+										<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+										<div class="m-dropdown__inner">
+											<div class="m-dropdown__header m--align-center" style="background: url(https://d2vyf30iypaegv.cloudfront.net/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+												<span class="m-dropdown__header-title">{% if request.session.lang == "en" %}
+																				Quick Actions
+																			{% else %}
+																				Hızlı Menü
+																			{% endif %}</span>
+												<span class="m-dropdown__header-subtitle">{% if request.session.lang == "en" %}
+																				Shortcuts
+																			{% else %}
+																				Kısayollar
+																			{% endif %}</span>
+											</div>
+											{% if request.user.company %}
+												<div class="m-dropdown__body m-dropdown__body--paddingless">
+													<div class="m-dropdown__content">
+														<div class="m-scrollable" data-scrollable="false" data-height="380" data-mobile-height="200">
+															<div class="m-nav-grid m-nav-grid--skin-light">
+																<div class="m-nav-grid__row">
+																	<a {% if request.session.lang == "en" %}
+														href="/job/postjob"
+														{% else %}
+														href="/job/tr/postjob"
+														{% endif %}  class="m-nav-grid__item">
+																		<i class="m-nav-grid__icon flaticon-add"></i>
+																		<span class="m-nav-grid__text">{% if request.session.lang == "en" %}
+						Post Job
+					{% else %}
+						İlan Ver
+					{% endif %}</span>
+																	</a>
+																	<a{% if request.session.lang == "en" %}
+														href="/job/appliers"
+														{% else %}
+														href="/job/tr/appliers"
+														{% endif %} class="m-nav-grid__item">
+																		<i class="m-nav-grid__icon flaticon-edit"></i>
+																		<span class="m-nav-grid__text">{% if request.session.lang == "en" %}
+																			Job Applicants
+																		{% else %}
+																			İlanıma Başvuranlar
+																		{% endif %}</span>
+																	</a>
+																</div>
+																<div class="m-nav-grid__row">
+																	<a {% if request.session.lang == "en" %}
+														href="/talent/search"
+														{% else %}
+														href="/tr/talent/search"
+														{% endif %} class="m-nav-grid__item">
+																		<i class="m-nav-grid__icon flaticon-search"></i>
+																		<span class="m-nav-grid__text">{% if request.session.lang == "en" %}
+						Talent Search
+				{% else %}
+						Tasarımcı Arama
+				{% endif %}</span>
+																	</a>
+
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											{% endif %}
+											{% if request.user.profile.is_not_company %}
+												<div class="m-dropdown__body m-dropdown__body--paddingless">
+													<div class="m-dropdown__content">
+														<div class="m-scrollable" data-scrollable="false" data-height="380" data-mobile-height="200">
+															<div class="m-nav-grid m-nav-grid--skin-light">
+																<div class="m-nav-grid__row">
+																	<a  {% if request.session.lang == "en" %}
+														href="/upload/create"
+														{% else %}
+														href="/upload/tr/create"
+														{% endif %}  class="m-nav-grid__item">
+																		<i class="m-nav-grid__icon flaticon-add"></i>
+																		<span class="m-nav-grid__text">
+																			{% if request.session.lang == "en" %}
+																					Upload a New Portfolio
+																			{% else %}
+																					Yeni Portfolyo Yükle
+																			{% endif %}
+																		</span>
+																	</a>
+																	<a {% if request.session.lang == "en" %}
+														href="/upload/list"
+														{% else %}
+														href="/upload/tr/list"
+														{% endif %} class="m-nav-grid__item">
+																		<i class="m-nav-grid__icon flaticon-edit"></i>
+																		<span class="m-nav-grid__text">
+																			{% if request.session.lang == "en" %}
+																				Edit Portfolio
+																			{% else %}
+																				Portfolyo Düzenle
+																			{% endif %}
+																		</span>
+																	</a>
+																</div>
+																<div class="m-nav-grid__row">
+																	<!--<a href="#" class="m-nav-grid__item">-->
+																		<!--&lt;!&ndash;/portfolio/createPortfolio&ndash;&gt;-->
+																		<!--<i class="m-nav-grid__icon flaticon-folder"></i>-->
+																		<!--<span class="m-nav-grid__text">Create PortfolioSlide</span>-->
+																	<!--</a>-->
+																	<a {% if request.session.lang == "en" %}
+														href="/upload/list"
+														{% else %}
+														href="/upload/tr/list"
+														{% endif %} class="m-nav-grid__item">
+																		<i class="m-nav-grid__icon flaticon-search"></i>
+																		<span class="m-nav-grid__text">
+																			{% if request.session.lang == "en" %}
+																				Show Portfolio
+																			{% else %}
+																				Portfolyolarına Göz At
+																			{% endif %}
+
+																		</span>
+																	</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											{% endif %}
+										</div>
+									</div>
+								</li>
+								<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
+									<a href="#" class="m-nav__link m-dropdown__toggle">
+										<span class="m-topbar__welcome">
+											{% if request.session.lang == "en" %}
+						Hello,
+				{% else %}
+						Selam,
+				{% endif %}&nbsp;</span>
+										<span class="m-topbar__username">{{request.user.first_name}}</span>
+										<span class="m-topbar__username">
+											<div class="m-demo-icon__preview">
+												<i class="fa fa-angle-down"></i>
+											</div>
+										</span>
+										<span class="m-topbar__userpic">
+											{% if request.user.profile %}
+
+											{% thumbnail request.user.profile.photo "41x41" as im %}
+												<img src="{{ im.url }}" class="m--img-rounded m--marginless m--img-centered" alt="">
+											{% endthumbnail %}
+											<!--<img src="https://s3.eu-central-1.amazonaws.com/artyel-s3/media/{{request.user.profile.photo}}" class="m&#45;&#45;img-rounded m&#45;&#45;marginless m&#45;&#45;img-centered" alt="">-->
+											{% else %}
+
+											{% thumbnail request.user.company.photo "41x41" as im %}
+												<img src="{{ im.url }}" class="m--img-rounded m--marginless m--img-centered" alt="">
+											{% endthumbnail %}
+											<!--<img src="https://s3.eu-central-1.amazonaws.com/artyel-s3/media/{{request.user.company.photo}}" class="m&#45;&#45;img-rounded m&#45;&#45;marginless m&#45;&#45;img-centered" alt="">-->
+											{% endif %}
+										</span>
+									</a>
+									<div class="m-dropdown__wrapper">
+										<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+										<div class="m-dropdown__inner">
+											<div class="m-dropdown__header m--align-center" style="background: url(https://d2vyf30iypaegv.cloudfront.net/media/img/misc/user_profile_bg.jpg); background-size: cover;">
+												<div class="m-card-user m-card-user--skin-dark">
+													<div class="m-card-user__pic">
+														{% if request.user.profile %}
+
+															{% thumbnail request.user.profile.photo "70x70" as im %}
+																<img src="{{ im.url }}" class="m--img-rounded m--marginless m--img-centered" alt="">
+															{% endthumbnail %}
+
+														<!--<img src="https://s3.eu-central-1.amazonaws.com/artyel-s3/media/{{request.user.profile.photo}}" class="m&#45;&#45;img-rounded m&#45;&#45;marginless" alt="">-->
+															{% else %}
+
+															{% thumbnail request.user.company.photo "70x70" as im %}
+																<img src="{{ im.url }}" class="m--img-rounded m--marginless m--img-centered" alt="">
+															{% endthumbnail %}
+
+														<!--<img src="https://s3.eu-central-1.amazonaws.com/artyel-s3/media/{{request.user.company.photo}}" class="m&#45;&#45;img-rounded m&#45;&#45;marginless" alt="">-->
+														{% endif %}
+													</div>
+													<div class="m-card-user__details">
+														<span class="m-card-user__name m--font-weight-500">{{request.user.first_name}} {{request.user.last_name}}</span>
+														<a href="" class="m-card-user__email m--font-weight-300 m-link">{{request.user.email}}</a>
+													</div>
+												</div>
+											</div>
+											<div class="m-dropdown__body">
+												<div class="m-dropdown__content">
+													<ul class="m-nav m-nav--skin-light">
+														<li class="m-nav__section m--hide">
+															<span class="m-nav__section-text">Section</span>
+														</li>
+														<li class="m-nav__item">
+															<a {% if request.session.lang == "en" %}
+														href="/{{request.user.username}}"
+														{% else %}
+														href="/tr/{{request.user.username}}"
+														{% endif %}
+																	 class="m-nav__link">
+																<i class="m-nav__link-icon flaticon-profile-1"></i>
+																<span class="m-nav__link-title">
+																	<span class="m-nav__link-wrap">
+																		<span class="m-nav__link-text">
+
+																		{% if request.session.lang == "en" %}
+																				My Profile
+																			{% else %}
+																				Profilim
+																			{% endif %}</span>
+																		<!--<span class="m-nav__link-badge"><span class="m-badge m-badge&#45;&#45;success">2</span></span>-->
+																	</span>
+																</span>
+															</a>
+														</li>
+														<li class="m-nav__item">
+															<a{% if request.session.lang == "en" %}
+														href="/edit"
+														{% else %}
+														href="/tr/edit"
+														{% endif %} class="m-nav__link">
+																<i class="m-nav__link-icon flaticon-settings"></i>
+																<span class="m-nav__link-text">
+																	{% if request.session.lang == "en" %}
+																				Settings
+																			{% else %}
+																				Ayarlar
+																			{% endif %}
+																</span>
+															</a>
+														</li>
+														<li class="m-nav__item">
+															<a href="/accounts/password/change/" class="m-nav__link">
+																<i class="m-nav__link-icon flaticon-refresh"></i>
+																<span class="m-nav__link-text">
+																{% if request.session.lang == "en" %}
+																				Password Change
+																			{% else %}
+																				Şifre Dep
+																			{% endif %}
+
+
+																</span>
+															</a>
+														</li>
+														<li class="m-nav__item">
+															<a href="/accounts/password/reset/" class="m-nav__link">
+																<i class="m-nav__link-icon flaticon-close"></i>
+																<span class="m-nav__link-text">
+																	{% if request.session.lang == "en" %}
+																				Password Reset
+																			{% else %}
+																				Ayarlar
+																			{% endif %}
+
+																</span>
+															</a>
+														</li>
+														<!--<li class="m-nav__item">-->
+															<!--<a href="?page=profile&amp;demo=demo5" class="m-nav__link">-->
+																<!--<i class="m-nav__link-icon flaticon-chat-1"></i>-->
+																<!--<span class="m-nav__link-text">Messages</span>-->
+															<!--</a>-->
+														<!--</li>-->
+														<li class="m-nav__separator m-nav__separator--fit">
+														</li>
+														<!--<li class="m-nav__item">-->
+															<!--<a href="?page=profile&amp;demo=demo5" class="m-nav__link">-->
+																<!--<i class="m-nav__link-icon flaticon-info"></i>-->
+																<!--<span class="m-nav__link-text">FAQ</span>-->
+															<!--</a>-->
+														<!--</li>-->
+														<li class="m-nav__item">
+															<a {% if request.session.lang == "en" %}
+														href="/support"
+														{% else %}
+														href="/support/tr"
+														{% endif %} class="m-nav__link">
+																<i class="m-nav__link-icon flaticon-lifebuoy"></i>
+																<span class="m-nav__link-text">
+																	{% if request.session.lang == "en" %}
+																				Support
+																			{% else %}
+																				Destek
+																			{% endif %}
+																</span>
+															</a>
+														</li>
+														<li class="m-nav__separator m-nav__separator--fit">
+														</li>
+														<li class="m-nav__item">
+															<a href="/logout" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+																{% if request.session.lang == "en" %}
+																				Logout
+																			{% else %}
+																				Çıkış
+																			{% endif %}
+															</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+
+								<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
+
+									<a href="#" class="m-nav__link m-dropdown__toggle">
+										<span class="m-nav__link-badge m-badge m-badge--dot m-badge--info m--hide"></span>
+										<span class="m-nav__link-icon">
+											<span class="m-nav__link-icon-wrapper">
+												<!--<i class="flaticon-share"></i>-->
+												{% if request.session.lang == "en" %}
+
+
+													<img class="m--img-rounded m--marginless" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/020-flag.svg" style="width: 35px; height: 35px;">
+
+													{% else %}
+
+
+
+													<img class="m--img-rounded m--marginless" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/006-turkey.svg" style="width: 35px; height: 35px;">
+
+												{% endif %}
+
+											</span>
+										</span>
+									</a>
+									<a href="#" class="m-nav__link m-dropdown__toggle">
+										<span class="m-nav__link-text">
+
+											<img class="m-topbar__language-selected-img" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/020-flag.svg">
+										</span>
+									</a>
+									<div class="m-dropdown__wrapper" style="z-index: 101;">
+										<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust" style="left: auto; right: 5px;"></span>
+										<div class="m-dropdown__inner">
+											<div class="m-dropdown__header m--align-center" style="background: url(https://d2vyf30iypaegv.cloudfront.net/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+												<span class="m-dropdown__header-subtitle">
+													{% if request.session.lang == "en" %}
+														Select your language
+													{% else %}
+														Dilini Seç
+													{% endif %}
+												</span>
+											</div>
+											<div class="m-dropdown__body">
+												<div class="m-dropdown__content">
+													<ul class="m-nav m-nav--skin-light">
+														<li class="m-nav__item m-nav__item--active">
+															<a href="{%url "enbase" %}" class="m-nav__link m-nav__link--active">
+
+
+
+																<span class="m-nav__link-icon"><img class="m-topbar__language-img" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/020-flag.svg"></span>
+																<span class="m-nav__link-title m-topbar__language-text m-nav__link-text"> English</span>
+															</a>
+														</li>
+														<li class="m-nav__item">
+															<a href="{%url "trbase" %}" class="m-nav__link">
+																<span class="m-nav__link-icon"><img class="m-topbar__language-img" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/006-turkey.svg"></span>
+																<span class="m-nav__link-title m-topbar__language-text m-nav__link-text"> Turkish</span>
+															</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+
+							<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
+									<a href="#" class="m-nav__link m-dropdown__toggle">
+										<span class="m-nav__link-badge m-badge m-badge--dot m-badge--info m--hide"></span>
+										<span class="m-nav__link-icon">
+											<span class="m-nav__link-icon">
+												<!--<i class="flaticon-share"></i>-->
+												<!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+
+												{% if request.session.lang == "en" %}
+														EN
+													{% else %}
+														TR
+													{% endif %}
+
+
+
+
+
+												<!--&nbsp;&nbsp;&nbsp;-->
+											<!--<span class="m-nav__link-icon-wrapper">-->
+												<!--Türkçe-->
+											<!--</span>-->
+
+
+
+											</span>
+
+										</span>
+									</a>
+									<div class="m-dropdown__wrapper" style="z-index: 101;">
+										<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust" style="left: auto; right: 5px;"></span>
+										<div class="m-dropdown__inner">
+											<div class="m-dropdown__header m--align-center" style="background: url(https://d2vyf30iypaegv.cloudfront.net/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+												<span class="m-dropdown__header-subtitle">
+
+														{% if request.session.lang == "en" %}
+														Select your language
+													{% else %}
+														Dilini Seç
+													{% endif %}
+
+												</span>
+											</div>
+											<div class="m-dropdown__body">
+												<div class="m-dropdown__content">
+													<ul class="m-nav m-nav--skin-light">
+														<li class="m-nav__item m-nav__item--active">
+															<a href="{%url "en" %}" class="m-nav__link m-nav__link--active">
+
+
+
+																<span class="m-nav__link-icon"><img class="m-topbar__language-img" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/020-flag.svg"></span>
+																<span class="m-nav__link-title m-topbar__language-text m-nav__link-text"> English</span>
+															</a>
+														</li>
+														<li class="m-nav__item">
+															<a href="{%url "tr" %}" class="m-nav__link">
+																<span class="m-nav__link-icon"><img class="m-topbar__language-img" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/006-turkey.svg"></span>
+																<span class="m-nav__link-title m-topbar__language-text m-nav__link-text"> Turkish</span>
+															</a>
+														</li>
+
+													</ul>
+												</div>
+
+											</div>
+										</div>
+
+									</div>
+
+
+								</li>
+
+
+
+
+
+
+							</ul>
+						</div>
+					</div>
+				</div>
+				{% endif %}
+				{% if request.user.company %}
+				<div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
+					<div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
+						<div class="m-stack__item m-topbar__nav-wrapper">
+							<ul class="m-topbar__nav m-nav m-nav--inline">
+
+								<li class="m-nav__item m-topbar__notifications m-topbar__notifications--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-center 	m-dropdown--mobile-full-width" m-dropdown-toggle="click" m-dropdown-persistent="1">
+									<a href="/messages/inbox" class="m-nav__link " >
+
+
+										{% with user|unread_thread_count as user_unread %}
+
+													{% if user_unread %}<span class="m-nav__link-badge m-badge m-badge--dot m-badge--dot-small m-badge--danger"></span>
+													{% else %}
+													<span class="m-nav__link-badge "></span>
+
+													{% endif %}
+
+                            			{% endwith %}
+										<span class="m-nav__link-icon">
+											<span class="m-nav__link-icon-wrapper">
+												<i class="flaticon-email"></i>
+											</span>
+										</span>
+									</a>
+
+								</li>
+
+								<li class="m-nav__item m-topbar__quick-actions m-topbar__quick-actions--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
+									<a href="#" class="m-nav__link m-dropdown__toggle">
+										<span class="m-nav__link-badge m-badge m-badge--dot m-badge--info m--hide"></span>
+										<span class="m-nav__link-icon">
+											<span class="m-nav__link-icon-wrapper">
+												<i class="flaticon-share"></i>
+											</span>
+										</span>
+									</a>
+									<div class="m-dropdown__wrapper">
+										<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+										<div class="m-dropdown__inner">
+											<div class="m-dropdown__header m--align-center" style="background: url(https://d2vyf30iypaegv.cloudfront.net/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+												<span class="m-dropdown__header-title">
+													{% if request.session.lang == "en" %}
+																				Quick Actions
+																			{% else %}
+																				Hızlı Menü
+																			{% endif %}
+
+												</span>
+												<span class="m-dropdown__header-subtitle">
+
+												{% if request.session.lang == "en" %}
+																				Shortcuts
+																			{% else %}
+																				Kısayollar
+																			{% endif %}</span>
+											</div>
+											{% if request.user.company %}
+												<div class="m-dropdown__body m-dropdown__body--paddingless">
+													<div class="m-dropdown__content">
+														<div class="m-scrollable" data-scrollable="false" data-height="380" data-mobile-height="200">
+															<div class="m-nav-grid m-nav-grid--skin-light">
+																<div class="m-nav-grid__row">
+																	<a {% if request.session.lang == "en" %}
+														href="/job/postjob/"
+														{% else %}
+														href="/job/tr/postjob/"
+														{% endif %} class="m-nav-grid__item">
+																		<i class="m-nav-grid__icon flaticon-add"></i>
+																		<span class="m-nav-grid__text">{% if request.session.lang == "en" %}
+																				Post a Job
+																			{% else %}
+																				İlan ver
+																			{% endif %}</span>
+																	</a>
+																	<a {% if request.session.lang == "en" %}
+														href="/job/appliers"
+														{% else %}
+														href="/job/tr/appliers"
+														{% endif %}
+																			 class="m-nav-grid__item">
+																		<i class="m-nav-grid__icon flaticon-edit"></i>
+																		<span class="m-nav-grid__text">
+																			{% if request.session.lang == "en" %}
+																				Job Applicants
+																			{% else %}
+																				İş Başvuruları
+																			{% endif %}</span>
+																	</a>
+																</div>
+																<div class="m-nav-grid__row">
+																	<a {% if request.session.lang == "en" %}
+														href="/talent/search"
+														{% else %}
+														href="/tr/talent/search"
+														{% endif %}
+																			 class="m-nav-grid__item">
+																		<i class="m-nav-grid__icon flaticon-search"></i>
+																		<span class="m-nav-grid__text">{% if request.session.lang == "en" %}
+																				Talent Search
+																			{% else %}
+																				Tasarımcı Ara
+																			{% endif %}</span>
+																	</a>
+
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											{% endif %}
+											{% if request.user.profile.is_not_company %}
+												<div class="m-dropdown__body m-dropdown__body--paddingless">
+													<div class="m-dropdown__content">
+														<div class="m-scrollable" data-scrollable="false" data-height="380" data-mobile-height="200">
+															<div class="m-nav-grid m-nav-grid--skin-light">
+																<div class="m-nav-grid__row">
+																	<a {% if request.session.lang == "en" %}
+														href="/upload/create"
+														{% else %}
+														href="/upload/tr/create"
+														{% endif %} class="m-nav-grid__item">
+																		<i class="m-nav-grid__icon flaticon-add"></i>
+																		<span class="m-nav-grid__text">Upload a New Portfolio</span>
+																	</a>
+																	<a {% if request.session.lang == "en" %}
+														href="/upload/list"
+														{% else %}
+														href="/upload/tr/list"
+														{% endif %} class="m-nav-grid__item">
+																		<i class="m-nav-grid__icon flaticon-edit"></i>
+																		<span class="m-nav-grid__text">Edit Portfolio</span>
+																	</a>
+																</div>
+																<div class="m-nav-grid__row">
+
+																	<a  {% if request.session.lang == "en" %}
+														href="/upload/list"
+														{% else %}
+														href="/upload/tr/list"
+														{% endif %} class="m-nav-grid__item">
+																		<i class="m-nav-grid__icon flaticon-search"></i>
+																		<span class="m-nav-grid__text">Show Portfolio</span>
+																	</a>
+																</div>
+
+															</div>
+														</div>
+													</div>
+												</div>
+											{% endif %}
+										</div>
+									</div>
+								</li>
+								<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
+									<a href="#" class="m-nav__link m-dropdown__toggle">
+										<span class="m-topbar__welcome">
+											{% if request.session.lang == "en" %}
+														Hello,
+													{% else %}
+														Selam,
+													{% endif %}&nbsp;</span>
+										<span class="m-topbar__username">{{request.user.first_name}}</span>
+										<span class="m-topbar__username">
+											<div class="m-demo-icon__preview">
+												<i class="fa fa-angle-down"></i>
+											</div>
+										</span>
+										<span class="m-topbar__userpic">
+											{% if request.user.profile %}
+
+											{% thumbnail request.user.profile.photo "41x41" as im %}
+																<img src="{{ im.url }}" class="m--img-rounded m--marginless m--img-centered" alt="">
+											{% endthumbnail %}
+
+											<!--<img src="https://s3.eu-central-1.amazonaws.com/artyel-s3/media/{{request.user.profile.photo}}" class="m&#45;&#45;img-rounded m&#45;&#45;marginless m&#45;&#45;img-centered" alt="">-->
+											{% else %}
+
+											{% thumbnail request.user.company.photo "41x41" as im %}
+																<img src="{{ im.url }}" class="m--img-rounded m--marginless m--img-centered" alt="">
+											{% endthumbnail %}
+
+											<!--<img src="https://s3.eu-central-1.amazonaws.com/artyel-s3/media/{{request.user.company.photo}}" class="m&#45;&#45;img-rounded m&#45;&#45;marginless m&#45;&#45;img-centered" alt="">-->
+											{% endif %}
+										</span>
+									</a>
+									<div class="m-dropdown__wrapper">
+										<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+										<div class="m-dropdown__inner">
+											<div class="m-dropdown__header m--align-center" style="background: url(https://d2vyf30iypaegv.cloudfront.net/media/img/misc/user_profile_bg.jpg); background-size: cover;">
+												<div class="m-card-user m-card-user--skin-dark">
+													<div class="m-card-user__pic">
+														{% if request.user.profile %}
+
+														{% thumbnail request.user.profile.photo "70x70" as im %}
+																<img src="{{ im.url }}" class="m--img-rounded m--marginless m--img-centered" alt="">
+														{% endthumbnail %}
+
+
+														<!--<img src="https://s3.eu-central-1.amazonaws.com/artyel-s3/media/{{request.user.profile.photo}}" class="m&#45;&#45;img-rounded m&#45;&#45;marginless" alt="">-->
+															{% else %}
+
+														{% thumbnail request.user.company.photo "70x70" as im %}
+																<img src="{{ im.url }}" class="m--img-rounded m--marginless m--img-centered" alt="">
+														{% endthumbnail %}
+
+
+														<!--<img src="https://s3.eu-central-1.amazonaws.com/artyel-s3/media/{{request.user.company.photo}}" class="m&#45;&#45;img-rounded m&#45;&#45;marginless" alt="">-->
+														{% endif %}
+													</div>
+													<div class="m-card-user__details">
+														<span class="m-card-user__name m--font-weight-500">{{request.user.first_name}} {{request.user.last_name}}</span>
+														<a href="" class="m-card-user__email m--font-weight-300 m-link">{{request.user.email}}</a>
+													</div>
+												</div>
+											</div>
+											<div class="m-dropdown__body">
+												<div class="m-dropdown__content">
+													<ul class="m-nav m-nav--skin-light">
+														<li class="m-nav__section m--hide">
+															<span class="m-nav__section-text">Section</span>
+														</li>
+														<li class="m-nav__item">
+															<a {% if request.session.lang == "en" %}
+														href="/company/{{request.user.company.slug}}-{{request.user.company.id}}"
+														{% else %}
+															href="/tr/company/{{request.user.company.slug}}-{{request.user.company.id}}"
+														{% endif %}
+																	 class="m-nav__link">
+																<i class="m-nav__link-icon flaticon-profile-1"></i>
+																<span class="m-nav__link-title">
+																	<span class="m-nav__link-wrap">
+																		<span class="m-nav__link-text">{% if request.session.lang == "en" %}
+																				My Profile
+																			{% else %}
+																				Profilim
+																			{% endif %}</span>
+																		<!--<span class="m-nav__link-badge"><span class="m-badge m-badge&#45;&#45;success">2</span></span>-->
+																	</span>
+																</span>
+															</a>
+														</li>
+														<li class="m-nav__item">
+															<a {% if request.session.lang == "en" %}
+														href="/company/edit"
+														{% else %}
+															href="/tr/company/edit"
+														{% endif %} class="m-nav__link">
+																<i class="m-nav__link-icon flaticon-settings"></i>
+																<span class="m-nav__link-text">{% if request.session.lang == "en" %}
+																				Settings
+																			{% else %}
+																				Ayarlar
+																			{% endif %}</span>
+															</a>
+														</li>
+
+														<li class="m-nav__item">
+															<a  {% if request.session.lang == "en" %}
+														href="/Payments/Transactions"
+														{% else %}
+															href="/Payments/tr/Transactions"
+														{% endif %}
+																	 class="m-nav__link">
+																<i class="m-nav__link-icon flaticon-event-calendar-symbol"></i>
+															<span class="m-nav__link-title">
+																<span class="m-nav__link-wrap">
+																		<span class="m-nav__link-text">{% if request.session.lang == "en" %}
+																			Payment Transactions
+																			{% else %}
+																				Ödeme Geçmişi
+																			{% endif %}</span>
+																		<!--<span class="m-nav__link-badge"><span class="m-badge m-badge&#45;&#45;success">2</span></span>-->
+																	</span>
+																</span>
+															</a>
+														</li>
+														<!--<li class="m-nav__item">-->
+															<!--<a href="?page=profile&amp;demo=demo5" class="m-nav__link">-->
+																<!--<i class="m-nav__link-icon flaticon-chat-1"></i>-->
+																<!--<span class="m-nav__link-text">Messages</span>-->
+															<!--</a>-->
+														<!--</li>-->
+														<li class="m-nav__separator m-nav__separator--fit">
+														</li>
+														<!--<li class="m-nav__item">-->
+															<!--<a href="?page=profile&amp;demo=demo5" class="m-nav__link">-->
+																<!--<i class="m-nav__link-icon flaticon-info"></i>-->
+																<!--<span class="m-nav__link-text">FAQ</span>-->
+															<!--</a>-->
+														<!--</li>-->
+														<li class="m-nav__item">
+															<a  {% if request.session.lang == "en" %}
+														href="/support"
+														{% else %}
+															href="/support/tr/"
+														{% endif %} class="m-nav__link">
+																<i class="m-nav__link-icon flaticon-lifebuoy"></i>
+																<span class="m-nav__link-text">{% if request.session.lang == "en" %}
+																				Support
+																			{% else %}
+																				Destek
+																			{% endif %}</span>
+															</a>
+														</li>
+														<li class="m-nav__separator m-nav__separator--fit">
+														</li>
+														<li class="m-nav__item">
+															<a href="/logout" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">{% if request.session.lang == "en" %}
+																				Logout
+																			{% else %}
+																				Çıkış
+																			{% endif %}</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+
+
+
+
+								<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
+
+									<a href="#" class="m-nav__link m-dropdown__toggle">
+										<span class="m-nav__link-badge m-badge m-badge--dot m-badge--info m--hide"></span>
+										<span class="m-nav__link-icon">
+											<span class="m-nav__link-icon-wrapper">
+												<!--<i class="flaticon-share"></i>-->
+												{% if request.session.lang == "en" %}
+
+
+													<img class="m--img-rounded m--marginless" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/020-flag.svg" style="width: 35px; height: 35px;">
+
+													{% else %}
+
+
+
+													<img class="m--img-rounded m--marginless" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/006-turkey.svg" style="width: 35px; height: 35px;">
+
+												{% endif %}
+
+											</span>
+										</span>
+									</a>
+									<a href="#" class="m-nav__link m-dropdown__toggle">
+										<span class="m-nav__link-text">
+
+											<img class="m-topbar__language-selected-img" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/020-flag.svg">
+										</span>
+									</a>
+									<div class="m-dropdown__wrapper" style="z-index: 101;">
+										<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust" style="left: auto; right: 5px;"></span>
+										<div class="m-dropdown__inner">
+											<div class="m-dropdown__header m--align-center" style="background: url(https://d2vyf30iypaegv.cloudfront.net/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+												<span class="m-dropdown__header-subtitle">
+													{% if request.session.lang == "en" %}
+														Select your language
+													{% else %}
+														Dilini Seç
+													{% endif %}
+												</span>
+											</div>
+											<div class="m-dropdown__body">
+												<div class="m-dropdown__content">
+													<ul class="m-nav m-nav--skin-light">
+														<li class="m-nav__item m-nav__item--active">
+															<a href="{%url "enbase" %}" class="m-nav__link m-nav__link--active">
+
+
+
+																<span class="m-nav__link-icon"><img class="m-topbar__language-img" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/020-flag.svg"></span>
+																<span class="m-nav__link-title m-topbar__language-text m-nav__link-text"> English</span>
+															</a>
+														</li>
+														<li class="m-nav__item">
+															<a href="{%url "trbase" %}" class="m-nav__link">
+																<span class="m-nav__link-icon"><img class="m-topbar__language-img" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/006-turkey.svg"></span>
+																<span class="m-nav__link-title m-topbar__language-text m-nav__link-text"> Turkish</span>
+															</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+
+															<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
+									<a href="#" class="m-nav__link m-dropdown__toggle">
+										<span class="m-nav__link-badge m-badge m-badge--dot m-badge--info m--hide"></span>
+										<span class="m-nav__link-icon">
+											<span class="m-nav__link-icon">
+												<!--<i class="flaticon-share"></i>-->
+												<!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+
+												{% if request.session.lang == "en" %}
+														EN
+													{% else %}
+														TR
+													{% endif %}
+
+
+
+
+
+												<!--&nbsp;&nbsp;&nbsp;-->
+											<!--<span class="m-nav__link-icon-wrapper">-->
+												<!--Türkçe-->
+											<!--</span>-->
+
+
+
+											</span>
+
+										</span>
+									</a>
+									<div class="m-dropdown__wrapper" style="z-index: 101;">
+										<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust" style="left: auto; right: 5px;"></span>
+										<div class="m-dropdown__inner">
+											<div class="m-dropdown__header m--align-center" style="background: url(https://d2vyf30iypaegv.cloudfront.net/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+												<span class="m-dropdown__header-subtitle">
+
+														{% if request.session.lang == "en" %}
+														Select your language
+													{% else %}
+														Dilini Seç
+													{% endif %}
+
+												</span>
+											</div>
+											<div class="m-dropdown__body">
+												<div class="m-dropdown__content">
+													<ul class="m-nav m-nav--skin-light">
+														<li class="m-nav__item m-nav__item--active">
+															<a href="{%url "en" %}" class="m-nav__link m-nav__link--active">
+
+
+
+																<span class="m-nav__link-icon"><img class="m-topbar__language-img" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/020-flag.svg"></span>
+																<span class="m-nav__link-title m-topbar__language-text m-nav__link-text"> English</span>
+															</a>
+														</li>
+														<li class="m-nav__item">
+															<a href="{%url "tr" %}" class="m-nav__link">
+																<span class="m-nav__link-icon"><img class="m-topbar__language-img" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/006-turkey.svg"></span>
+																<span class="m-nav__link-title m-topbar__language-text m-nav__link-text"> Turkish</span>
+															</a>
+														</li>
+
+													</ul>
+												</div>
+
+											</div>
+										</div>
+
+									</div>
+
+
+								</li>
+
+
+
+
+
+							</ul>
+						</div>
+					</div>
+				</div>
+				{% endif %}
+				{% if not request.user.company and not request.user.profile.is_not_company and not user.is_authenticated  %}
+				<div class="m-stack__item m-stack__item--fluid m-header-head m-stack--desktop" id="m_header_nav">
+	<div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--desktop">
+		<div class="m-stack__item m-topbar__nav-wrapper">
+			<ul class="m-topbar__nav m-nav m-nav--inline">
+
+
+					{% if request.session.lang == "en" %}
+					<li id="m_quick_sidebar_toggle1" class="m-nav__item" style="width:52px;">
+						{% else %}
+					<li id="m_quick_sidebar_toggle1" class="m-nav__item" style="width:100px;">
+					{% endif %}
+						<a href="/accounts/login" class="m-nav__link m-dropdown__toggle">
+							<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+								<span class="m-nav__link-icon-wrapper"><button type="button" class="btn m-btn--pill m-btn--air         btn-danger">{% if request.session.lang == "en" %}
+																				Sign In
+																			{% else %}
+																				Kullanıcı Girişi
+																			{% endif %}</button></span>
+							</span>
+						</a>
+					</li>
+
+					{% if request.session.lang == "en" %}
+					<li id="m_quick_sidebar_toggle1" class="m-nav__item" style="width:101px;">
+						{% else %}
+					<li id="m_quick_sidebar_toggle1" class="m-nav__item" style="width:100px;">
+					{% endif %}
+						<a  {% if request.session.lang == "en" %}
+														href="/register"
+														{% else %}
+															href="/tr/register"
+														{% endif %} class="m-nav__link m-dropdown__toggle">
+							<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+								<span class="m-nav__link-icon-wrapper"><button type="button" class="btn m-btn--pill m-btn--air         btn-danger">{% if request.session.lang == "en" %}
+																				Sign Up
+																			{% else %}
+																				Kayıt Ol
+																			{% endif %}</button></span>
+							</span>
+						</a>
+					</li>
+
+
+					{% if request.session.lang == "en" %}
+					<li id="m_quick_sidebar_toggle1" class="m-nav__item" style="width:120px;">
+						{% else %}
+					<li id="m_quick_sidebar_toggle1" class="m-nav__item" style="width:100px;">
+					{% endif %}
+						<a {% if request.session.lang == "en" %}
+														href="/company/register"
+														{% else %}
+															href="/tr/company/register"
+														{% endif %} class="m-nav__link m-dropdown__toggle">
+							<span class="m-nav__link-icon m-nav__link-icon--aside-toggle">
+								<span class="m-nav__link-icon-wrapper"><button type="button" class="btn m-btn--pill m-btn--air         btn-primary">{% if request.session.lang == "en" %}
+																				Employer Sign Up
+																			{% else %}
+																				İş Veren Kayıt
+																			{% endif %}</button></span>
+							</span>
+						</a>
+					</li>
+
+					<!--{% if request.session.lang == "en" %}-->
+					<!--<li id="m_quick_sidebar_toggle1" class="m-nav__item" style="width:110px;">-->
+						<!--{% else %}-->
+					<!--<li id="m_quick_sidebar_toggle1" class="m-nav__item" style="width:102px;">-->
+					<!--{% endif %}-->
+						<!--<a  {% if request.session.lang == "en" %}-->
+														<!--href="/job/postjob"-->
+														<!--{% else %}-->
+															<!--href="/job/tr/postjob"-->
+														<!--{% endif %}-->
+								 <!--class="m-nav__link m-dropdown__toggle">-->
+							<!--<span class="m-nav__link-icon m-nav__link-icon&#45;&#45;aside-toggle">-->
+								<!--<span class="m-nav__link-icon-wrapper"><button type="button" class="btn m-btn&#45;&#45;pill m-btn&#45;&#45;air         btn-secondary" value="{{ next }}">{% if request.session.lang == "en" %}-->
+																				<!--Post Job-->
+																			<!--{% else %}-->
+																				<!--İş İlanı Ver-->
+																			<!--{% endif %}</button></span>-->
+							<!--</span>-->
+						<!--</a>-->
+					<!--</li>-->
+
+
+
+				<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click" style="width:70px;">
+
+									<a href="#" class="m-nav__link m-dropdown__toggle">
+										<span class="m-nav__link-badge m-badge m-badge--dot m-badge--info m--hide"></span>
+										<span class="m-nav__link-icon">
+											<span class="m-nav__link-icon-wrapper">
+												<!--<i class="flaticon-share"></i>-->
+												{% if request.session.lang == "en" %}
+
+
+													<img class="m--img-rounded m--marginless" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/020-flag.svg" style="width: 35px; height: 35px;">
+
+													{% else %}
+
+
+
+													<img class="m--img-rounded m--marginless" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/006-turkey.svg" style="width: 35px; height: 35px;">
+
+												{% endif %}
+
+											</span>
+										</span>
+									</a>
+									<a href="#" class="m-nav__link m-dropdown__toggle">
+										<span class="m-nav__link-text">
+
+											<img class="m-topbar__language-selected-img" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/020-flag.svg">
+										</span>
+									</a>
+									<div class="m-dropdown__wrapper" style="z-index: 101;">
+										<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust" style="left: auto; right: 5px;"></span>
+										<div class="m-dropdown__inner">
+											<div class="m-dropdown__header m--align-center" style="background: url(https://d2vyf30iypaegv.cloudfront.net/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+												<span class="m-dropdown__header-subtitle">
+													{% if request.session.lang == "en" %}
+														Select your language
+													{% else %}
+														Dilini Seç
+													{% endif %}
+												</span>
+											</div>
+											<div class="m-dropdown__body">
+												<div class="m-dropdown__content">
+													<ul class="m-nav m-nav--skin-light">
+														<li class="m-nav__item m-nav__item--active">
+															<a href="{%url "enbase" %}" class="m-nav__link m-nav__link--active">
+
+
+
+																<span class="m-nav__link-icon"><img class="m-topbar__language-img" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/020-flag.svg"></span>
+																<span class="m-nav__link-title m-topbar__language-text m-nav__link-text"> English</span>
+															</a>
+														</li>
+														<li class="m-nav__item">
+															<a href="{%url "trbase" %}" class="m-nav__link">
+																<span class="m-nav__link-icon"><img class="m-topbar__language-img" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/006-turkey.svg"></span>
+																<span class="m-nav__link-title m-topbar__language-text m-nav__link-text"> Turkish</span>
+															</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+
+											<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
+									<a href="#" class="m-nav__link m-dropdown__toggle">
+										<span class="m-nav__link-badge m-badge m-badge--dot m-badge--info m--hide"></span>
+										<span class="m-nav__link-icon">
+											<span class="m-nav__link-icon">
+												<!--<i class="flaticon-share"></i>-->
+												<!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+
+												{% if request.session.lang == "en" %}
+														EN
+													{% else %}
+														TR
+													{% endif %}
+
+
+
+
+
+												<!--&nbsp;&nbsp;&nbsp;-->
+											<!--<span class="m-nav__link-icon-wrapper">-->
+												<!--Türkçe-->
+											<!--</span>-->
+
+
+
+											</span>
+
+										</span>
+									</a>
+									<div class="m-dropdown__wrapper" style="z-index: 101;">
+										<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust" style="left: auto; right: 5px;"></span>
+										<div class="m-dropdown__inner">
+											<div class="m-dropdown__header m--align-center" style="background: url(https://d2vyf30iypaegv.cloudfront.net/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+												<span class="m-dropdown__header-subtitle">
+
+														Dilini Seç
+
+												</span>
+											</div>
+											<div class="m-dropdown__body">
+												<div class="m-dropdown__content">
+													<ul class="m-nav m-nav--skin-light">
+														<li class="m-nav__item m-nav__item--active">
+															<a href="{%url "en" %}" class="m-nav__link m-nav__link--active">
+
+
+
+																<span class="m-nav__link-icon"><img class="m-topbar__language-img" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/020-flag.svg"></span>
+																<span class="m-nav__link-title m-topbar__language-text m-nav__link-text"> English</span>
+															</a>
+														</li>
+														<li class="m-nav__item">
+															<a href="{%url "tr" %}" class="m-nav__link">
+																<span class="m-nav__link-icon"><img class="m-topbar__language-img" src="https://d2vyf30iypaegv.cloudfront.net/media/img/flags/006-turkey.svg"></span>
+																<span class="m-nav__link-title m-topbar__language-text m-nav__link-text"> Turkish</span>
+															</a>
+														</li>
+
+													</ul>
+												</div>
+
+											</div>
+										</div>
+
+									</div>
+
+
+								</li>
+
+
+
+
+
+
+
+		</ul>
+		</div>
+	</div>
+</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+</header>
+
+
+	<div class="m-grid__item m-grid__item--fluid  m-grid m-grid--ver-desktop m-grid--desktop 	m-container m-container--responsive m-container--xxl m-page__container m-body">
+
+
+			<div class="m-grid__item m-grid__item--fluid m-wrapper">
+	     			<div class="m-content"></div>
+				<!--{% if user.is_authenticated %}-->
+					<!--{% if not request.user.profile.category %}-->
+						<!--{% if request.user.profile %}-->
+								<!--<div class="m-alert m-alert&#45;&#45;icon alert alert-danger" role="alert">-->
+									<!--<div class="m-alert__icon">-->
+										<!--<i class="la la-warning"></i>-->
+									<!--</div>-->
+									<!--<div class="m-alert__text">-->
+										<!--{% if request.session.lang == "en" %}-->
+																					<!--<strong>Warning!</strong> To be able to use Artyel properly, you must choose a category for your profile.-->
+																				<!--{% else %}-->
+																					<!--<strong>Dikkat!</strong> Artyel'i en iyi şekilde kullanabilmek için lütfen profil kategorinizi seçiniz. Profil ayarlarınıza giderek değiştirebilirsiniz.-->
+																				<!--{% endif %}-->
+									<!--</div>-->
+									<!--<div class="m-alert__actions" style="width: 160px;">-->
+										<!--<a href="/edit" class="btn btn-outline-light btn-sm m-btn m-btn&#45;&#45;hover-brand" >Edit your Profile</a>-->
+	<!---->
+									<!--</div>-->
+								<!--</div>-->
+						<!--{% endif %}-->
+					<!--{% endif %}-->
+				<!--{% endif %}-->
+
+						{% block body %}
+
+
+					 <div class="m-portlet">
+
+    <div class="alert alert-danger" role="alert" align="center">
+        <p>
+
+			{% if request.session.lang == "en" %}
+				<strong>{% trans "Your account is now activated." %}</strong>
+				{% if not user.is_authenticated %}
+				{% trans "You can log in." %}
+				{% endif %}
+			{% else %}
+				<strong>{% trans "Hesabınız aktif edildi." %}</strong>
+				{% if not user.is_authenticated %}
+				{% trans "Artık giriş yapabilirsiniz." %}
+				{% endif %}
+			{% endif %}
+
+
+
+        </p>
+    </div>
+    <div class="m-login__form-action" align="center">
+        <button id="m_login_signin_submit" class="btn btn-danger m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary">
+			{% if request.session.lang == "en" %}
+				<a href="{% url 'index' %}" class="m-link m-link--light m-login__account-link">
+                Continue
+            </a>
+			{% else %}
+				<a href="{% url 'indextr' %}" class="m-link m-link--light m-login__account-link">
+					Devam
+				</a>
+			{% endif %}
+
+
+        </button>
+    </div>
+    <br>
+    <br>
+</div>
+
+
+				{% endblock %}
+							</div>
+
+					</div>
+
+
+				<!-- end::Body -->
+
+
+<!-- begin::Footer -->
+<footer class="m-grid__item m-footer ">
+	<div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
+		<div class="m-footer__wrapper">
+			<div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
+				<div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
+					<span class="m-footer__copyright">
+						2018 ©  <a href="http://www.artyel.com" class="m-link">Artyel </a>
+					</span>
+				</div>
+				<div class="m-stack__item m-stack__item--right m-stack__item--middle m-stack__item--first">
+					<ul class="m-footer__nav m-nav m-nav--inline m--pull-right">
+						<li class="m-nav__item">
+							<a href="/about" class="m-nav__link">
+								<span class="m-nav__link-text">
+									{% if request.session.lang == "en" %}
+																				About
+																			{% else %}
+																				Hakkında
+																			{% endif %}
+
+								</span>
+							</a>
+						</li>
+						<li class="m-nav__item">
+							<a href="/privacy" class="m-nav__link">
+								<span class="m-nav__link-text">
+
+								{% if request.session.lang == "en" %}
+									Privacy
+								{% else %}
+									Gizlilik
+								{% endif %}
+								</span>
+							</a>
+						</li>
+						<li class="m-nav__item">
+							<a href="/term" class="m-nav__link">
+								<span class="m-nav__link-text">
+									{% if request.session.lang == "en" %}
+										Terms & Use
+									{% else %}
+										Kullanım Koşulları
+									{% endif %}
+								</span>
+							</a>
+						</li>
+						<li class="m-nav__item">
+							<a href="/deliveryRefund" class="m-nav__link">
+								<span class="m-nav__link-text">
+									{% if request.session.lang == "en" %}
+										Delivery & Refund
+									{% else %}
+										Teslim ve İade
+									{% endif %}
+
+								</span>
+							</a>
+						</li>
+						<li class="m-nav__item">
+							<a href="/contract" class="m-nav__link">
+								<span class="m-nav__link-text">
+									{% if request.session.lang == "en" %}
+										Online Selling Contract
+									{% else %}
+										Satış Sözleşmesi
+									{% endif %}</span>
+							</a>
+						</li>
+						<li class="m-nav__item m-nav__item--last">
+							<a href="/support" class="m-nav__link" data-toggle="m-tooltip" title="" data-placement="left" data-original-title="Support Center">
+								<i class="m-nav__link-icon flaticon-info m--icon-font-size-lg3"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- end::Footer -->
+
+
+</div>
+<!-- end:: Page -->
+
+
+<!-- end::Quick Sidebar -->
+	    <!-- begin::Scroll Top -->
+<!--<div id="m_scroll_top" class="m-scroll-top">-->
+	<!--<i class="la la-arrow-up"></i>-->
+<!--</div>-->
+<!-- end::Scroll Top -->			<!-- begin::Quick Nav -->
+
+<!-- begin::Quick Nav -->
+    	<!--begin::Base Scripts -->
+
+	<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+
+
+		<script type="text/javascript" src="{% static 'basePage/base/vendors.bundle.js.gz' %}"></script>
+				<script type="text/javascript" src="{% static 'basePage/base/scripts.bundle.js.gz' %}"></script>
+
+
+
+                <!--end::Page Vendors -->
+
+		<script type="text/javascript" src="{% static 'basePage/app/js/dashboard.js.gz' %}"></script>
+
+<!--<script>-->
+     <!--var csrftoken = $.cookie('csrftoken');-->
+     <!--function csrfSafeMethod(method) {-->
+       <!--// these HTTP methods do not require CSRF protection-->
+       <!--return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));-->
+     <!--}-->
+     <!--$.ajaxSetup({-->
+       <!--beforeSend: function(xhr, settings) {-->
+         <!--if (!csrfSafeMethod(settings.type) && !this.crossDomain) {-->
+           <!--xhr.setRequestHeader("X-CSRFToken", csrftoken);-->
+<!--} }-->
+<!--});-->
+     <!--$(document).ready(function(){-->
+       <!--{% block domready %}-->
+       <!--{% endblock %}-->
+     <!--});-->
+   <!--</script>-->
+
+        <!--begin::Page Snippets -->
+
+                <!--end::Page Snippets -->
+
+
+    <!-- end::Body -->

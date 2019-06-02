@@ -1,0 +1,55 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+
+{% block index %}<meta name="robots" content="noindex">  {% endblock %}
+{% block title %}<title>Account Activation Resent -  Artyel</title> {% endblock %}
+
+
+
+
+
+{% block body %}
+
+{% if request.session.lang == "en" %}
+    <div class="m-portlet">
+
+        <div class="alert alert-danger" role="alert" align="center">
+            <p>
+              {% blocktrans %}
+              We have sent an email to {{ email }} with further instructions.
+              {% endblocktrans %}
+            </p>
+        </div>
+</div>
+
+{% else %}
+   <div class="m-portlet">
+
+        <div class="alert alert-danger" role="alert" align="center">
+            <p>
+              {% blocktrans %}
+               {{ email }} adresine detaylar ile bir mail gönderdik. Lütfen kontrol ediniz.
+              {% endblocktrans %}
+            </p>
+        </div>
+</div>
+
+{% endif %}
+
+
+
+
+
+
+{% endblock %}
+
+
+{% comment %}
+**registration/resend_activation_complete.html**
+Used after form for resending account activation is submitted. By default has
+the following context:
+
+``email``
+    The email address submitted in the resend activation form.
+{% endcomment %}

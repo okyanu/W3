@@ -1,0 +1,173 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+<title>3Ws</title>
+
+<link rel="shortcut icon" href="http://glorywebsdev.com/eventcamp/html/eventpremium/favicon.ico" type="image/x-icon">
+ 
+<!-- attach CSS styles -->
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" >
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.transitions.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" >
+
+
+</head>
+
+<body>
+<div class="se-pre-con"></div>
+<!--  BODY PAGE CONTENT --> 
+<!-- navigation panel --> 
+<!-- first section - Home -->
+<section id="home" class="home drawer drawer--left">
+  <div class="banner-title ">
+    <h1><strong>When Where What </strong>To Do</h1>
+    <div class="event-schedule">
+        <div class="row">
+            <form method="post">
+              {% csrf_token %}
+                <span class="event-date">
+
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <input type="date" name="day" style="color: black; opacity: 0.3;" required>
+                </span>
+
+
+
+                <span class="event-date">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Start Time:
+
+                  <input type="number" min="0" max="23" placeholder="23" name = hour style="color: black; opacity: 0.3;" required>:
+                  <input type="number" min="0" max="59" placeholder="00" name = minute style="color: black; opacity: 0.3;" required>
+                     End Time:
+
+                  <input type="number" min="0" max="23" placeholder="23" name = hour2 style="color: black; opacity: 0.3;" required>:
+                  <input type="number" min="0" max="59" placeholder="00" name = minute2 style="color: black; opacity: 0.3;" required>
+
+                    </span>
+             </div>
+
+
+                <span class="event-place">
+                    <i class="fa fa-building" aria-hidden="true"></i>City/State:
+                 <input type="text" name="location" class="fa fa-building" style="color: black; opacity: 0.3;" required>
+                </span>
+
+                <div class="checkbox-group">
+                <span class="event-place">
+                        <i class="fa fa-home" aria-hidden="true"></i>Home Activities
+                 <input type="checkbox" name="home" value="home" style="color: black; ">
+                </span>
+                <span class="event-place">
+                        <i class="fa fa-tree" aria-hidden="true"></i>Outside Activities
+                 <input type="checkbox" name="outside" value="outside" style="color: black; ">
+                </span>
+                </div>
+
+                <div class="row">
+
+                <div class="register-now-section">
+
+                        <button type="submit" value='save' name="submit"  class="register-now-btn">Search <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+
+                </div>
+    </div>
+
+
+</form>
+
+
+
+    </div>
+
+
+    <p class="event-description">Don't You Know What to Do ? <strong>Let us to Find Something to Do For You.</strong> </p>
+    <div class="register-now-section">  <a href="#" class="register-now-btn">Search <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> </div>
+    <div class="top-social"> <a href="#" class="fa fa-facebook" aria-hidden="true"></a> <a href="#" class="fa fa-twitter" aria-hidden="true"></a> <a href="#" class="fa fa-linkedin" aria-hidden="true"></a> <a href="#" class="fa fa-vimeo" aria-hidden="true"></a> <a href="#" class="fa fa-google-plus" aria-hidden="true"></a> <a href="#" class="fa fa-instagram" aria-hidden="true"></a> </div>
+  </div>
+  <nav class="navbar navbar-default main-menu hidden-xs menu"  >
+    <div class="container-fluid">
+       <div class="header-left">
+            <p class="no-margin"><strong>What to Do Right Now</strong> Around</p>
+          </div>
+
+    </div>
+  </nav>
+
+</section>
+<!-- /first section --> 
+
+
+<!-- Subscribe -->
+<section id="subscribe" class="subscribe">
+  <div class="container">
+    <div class="row">
+      <h2 class="block-title"><strong>Subscribe for</strong> Next eventary</h2>
+      <div class="subscribe-form">
+        <form>
+          <div class="input-group margin-bottom-sm col-lg-5 col-md-5 col-sm-12  col-xs-12"> <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+            <input class="form-control" type="text" placeholder="First Name">
+          </div>
+          <div class="input-group margin-bottom-sm col-lg-5  col-md-5 col-sm-12  col-xs-12"> <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+            <input class="form-control" type="text" placeholder="Email address">
+          </div>
+          <div class="col-sm-12 col-xs-12">
+            <p class="no-margin subscribe-text">We guarantee 100% privacy. Your information will not be shared.</p>
+            <a href="#" class="register-now-btn">Get Every Info of Our Next Camp Eventery</a> </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Subscribe --> 
+
+
+
+<!-- Bottom Social -->
+<div id="elements" class="bottom-social"> <a href="#" class="fa fa-facebook" aria-hidden="true"></a> <a href="#" class="fa fa-twitter" aria-hidden="true"></a> <a href="#" class="fa fa-linkedin" aria-hidden="true"></a> <a href="#" class="fa fa-vimeo" aria-hidden="true"></a> <a href="#" class="fa fa-google-plus" aria-hidden="true"></a> <a href="#" class="fa fa-instagram" aria-hidden="true"></a> </div>
+<!-- /Bottom Social --> 
+
+<!-- Footer -->
+<footer>
+
+
+  <a href="#" id="back-to-top" title="Back to top">&uarr;</a> </footer>
+<!-- .Footer --> 
+
+<!-- attach JavaScripts --> 
+<script type="text/javascript" src="http://glorywebsdev.com/eventcamp/html/eventpremium/js/jquery-2.2.4.min.js"></script>
+<script src="http://glorywebsdev.com/eventcamp/html/eventpremium/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="http://glorywebsdev.com/eventcamp/html/eventpremium/js/eventpremium-script.js"></script>
+<script>
+    document.querySelectorAll('input[type=number]')
+  .forEach(e => e.oninput = () => {
+    // Always 2 digits
+    if (e.value.length >= 2) e.value = e.value.slice(0, 2);
+    // 0 on the left (doesn't work on FF)
+    if (e.value.length === 1) e.value = '0' + e.value;
+    // Avoiding letters on FF
+    if (!e.value) e.value = '00';
+  });
+</script>
+
+</body>
+
+</html>
+
+
+
+

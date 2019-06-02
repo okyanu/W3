@@ -1,0 +1,172 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="">
+<title>3Ws</title>
+
+<link rel="shortcut icon" href="http://glorywebsdev.com/eventcamp/html/eventpremium/favicon.ico" type="image/x-icon">
+ 
+<!-- attach CSS styles -->
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" >
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.transitions.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" >
+
+
+</head>
+
+<body>
+<div class="se-pre-con"></div>
+
+
+<section id="home" class="home drawer drawer--left">
+  <div class="container">
+    <div class="row">
+        <h2 class="block-title"><strong><a href="#subscribe" style="background-color:black;">Recipe Suggestions</a></strong></h2>
+        <h2 class="block-title"><strong> <a href="#schedule" style="background-color:black;">Music Suggestions</a></strong></h2>
+        <h2 class="block-title"><strong> <a href="#testiominal" style="background-color:black;">Tv Shows Suggestions</a></strong></h2>
+        <h2 class="block-title"><strong> <a href="#prizes" style="background-color:black;"> Films Suggestions</a></strong></h2>
+    </div>
+</section>
+<section id="subscribe" class="subscribe">
+  <div class="container">
+    <div class="row">
+      <h2 class="block-title"><strong>Tasteful</strong> Recipe</h2>
+      <div class="subscribe-form">
+          {% for key1,value1 in rec.items  %}
+
+             <div class="input-group margin-bottom-sm col-lg-5 col-md-5 col-sm-12  col-xs-12">
+                 <a href="{{value1.href}}" ><h1 style="background-color:black;">How to make<h1></a> <h1>{{value1.title}}</h1> Ingredients: {{value1.ingredients}}<br />
+          </div>
+
+          {% endfor %}
+    </div>
+  </div>
+</section>
+<section id="schedule" class="schedule">
+  <div class="container">
+
+    <div class="row">
+        <h2 class="block-title"  style="background-color:black;"><strong>Spotify</strong> Mood Lists</h2>
+
+               {% for choice in spo %}
+
+
+
+              <div class="col-sm-4  col-xs-12">
+                <div class="col-sm-12 col-xs-12">
+                  <div class="img-section"> <img src="{{choice.images.0.url}}" class="img-responsive"> </div>
+                </div>
+              </div>
+              <div class="col-sm-2  col-xs-12 ">
+                <div class="col-sm-12 col-xs-12">
+                  <h3 class="speaker-topic">{{choice.name}}.</h3>
+                  <p class="topic-description"><a href="{{choice.external_urls.spotify}}" style="background-color:black;">Open In Spotify</a></p>
+                </div>
+              </div>
+
+            {% endfor %}
+
+    </div>
+
+  </div>
+</section>
+<section id="testiominal" class="testiominals">
+  <div class="container">
+       <p class="block-title"><strong>TV SHOWS</strong></p>
+    <div class="row">
+        {% for key1,value1 in tv.items  %}
+      <div class="col-sm-6 col-xs-12">
+
+
+        <div class="owl-testimonial owl-carousel owl-theme" style="opacity: 1; display: block;">
+          <div class="owl-wrapper-outer">
+
+
+                  <div class="inner-testimonial">
+                <div class="tm-tagline">
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+
+                    <span>{{value1.show.name}}</span><br>
+                    <span>{{value1.show.network.name}}</span><br>
+                <span><i class="fa fa-calendar-o" aria-hidden="true"></i> {{value1.airtime}}</span>
+                    </div>
+
+              </div>
+
+
+
+    </div>
+
+
+
+
+
+      </div>
+    </div>
+        {% endfor %}
+  </div>
+  </div>
+</section>
+
+<section id="prices" class="prices">
+  <div class="container">
+      <p class="block-title"><strong>The</strong> Prices</p>
+
+    <div class="row">
+        {% for key1,value1 in film.items  %}
+
+      <div class="col-sm-4 col-md-4 event-priceing">
+        <div class="inner-pricing">
+          <div class="plan-name">
+            <h6>{{value1.original_title}}</h6>
+            <small>RECOMMENDED FOR YOU</small> </div>
+          <div class="plan-price">
+            <p class="no-margin"><sup>RATING</sup>{{value1.vote_average}}</p>
+          </div>
+          <div class="plan-details">
+            <ul>
+              <li><i class="fa fa-check" aria-hidden="true"></i> {{value1.overview|truncatechars:100}}..</li>
+
+            </ul>
+            </div>
+        </div>
+      </div>
+ {% endfor %}
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+
+
+  <a href="#" id="back-to-top" title="Back to top">&uarr;</a> </footer>
+<!-- .Footer --> 
+
+<!-- attach JavaScripts --> 
+<script type="text/javascript" src="http://glorywebsdev.com/eventcamp/html/eventpremium/js/jquery-2.2.4.min.js"></script>
+<script src="http://glorywebsdev.com/eventcamp/html/eventpremium/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="http://glorywebsdev.com/eventcamp/html/eventpremium/js/eventpremium-script.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+

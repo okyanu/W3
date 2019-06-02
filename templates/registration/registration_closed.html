@@ -1,0 +1,17 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block index %}<meta name="robots" content="noindex">  {% endblock %}
+
+{% block title %}<title>Artyel- Registration is closed</title> {% endblock %}
+
+
+
+{% block body %}
+<div class="m-portlet">
+
+        <div class="alert alert-danger" role="alert" align="center">
+            <p>{% trans "Sorry, but registration is closed at this moment. Come back later." %}</p>
+        </div>
+</div>
+{% endblock %}

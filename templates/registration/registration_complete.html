@@ -1,0 +1,33 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block index %}<meta name="robots" content="noindex">  {% endblock %}
+{% block title %}<title>Activation email sent -  Artyel</title> {% endblock %}
+
+
+{% block body %}
+ <div class="m-portlet">
+
+        <div class="alert alert-danger" role="alert" align="center">
+            <p>
+                {% if request.session.lang == "en" %}
+                    <strong><p>{% trans "Please check your email to complete the registration process." %}</p></strong>
+                {% else %}
+                    <strong><p>{% trans "Kayıt işlemini tamamlamak için lütfen mailinizi kontrol ediniz." %}</p></strong>
+                {% endif %}
+
+            </p>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% comment %}
+**registration/registration_complete.html**
+
+Used after successful completion of the registration form. This
+template has no context variables of its own, and should simply inform
+the user that an email containing account-activation information has
+been sent.
+{% endcomment %}
